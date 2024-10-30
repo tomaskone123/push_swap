@@ -6,11 +6,11 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:49:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/29 14:13:37 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/30 19:02:56 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
 static void	rotate(t_stack **a)
 {

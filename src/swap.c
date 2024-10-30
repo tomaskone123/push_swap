@@ -1,46 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 14:49:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/19 19:44:38 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/09/23 13:22:47 by tkonecny          #+#    #+#             */
+/*   Updated: 2024/10/30 19:03:07 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-static void	reverse(t_stack **a)
+static void	swap(t_stack **a)
 {
-	t_stack	*last;
-
 	if (!*a || !(*a)->next)
 		return ;
-	last = find_last(*a);
-	last->prev->next = NULL;
-	last->next = *a;
-	last->prev = NULL;
-	*a = last;
-	last->next->prev = last;
+	*a = (*a)->next;
+	(*a)->prev->prev = *a;
+	(*a)->prev->next = (*a)->next;
+	if ((*a)->next)
+		(*a)->next->prev = (*a)->prev;
+	(*a)->next = (*a)->prev;
+	(*a)->prev = NULL;
 }
 
-void	rra(t_stack **a)
+void	sa(t_stack **a)
 {
-	reverse(a);
-	ft_printf("rra\n");
+	swap(a);
+	ft_printf("sa\n");
 }
 
-void	rrb(t_stack **b)
+void	sb(t_stack **b)
 {
-	reverse(b);
-	ft_printf("rrb\n");
+	swap(b);
+	ft_printf("sb\n");
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	ss(t_stack **b, t_stack **a)
 {
-	reverse(a);
-	reverse(b);
-	ft_printf("rrr\n");
+	swap(a);
+	swap(b);
+	ft_printf("ss\n");
 }

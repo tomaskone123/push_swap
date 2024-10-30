@@ -6,11 +6,11 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 17:09:27 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/09/29 14:15:12 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/30 19:03:00 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
 void	sort_three(t_stack **a)
 {
