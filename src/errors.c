@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:22:54 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/25 10:55:06 by tomas            ###   ########.fr       */
+/*   Updated: 2024/10/30 19:31:48 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,6 @@ void	free_stack(t_stack **a)
 		current = tmp;
 	}
 	*a = NULL;
-}
-
-void	free_stuff(t_stack **a)
-{
-	free_stack(a);
-	ft_printf("Error\n");
-	exit(1);
 }
 
 int	check_duplicates(t_stack *a, int n)

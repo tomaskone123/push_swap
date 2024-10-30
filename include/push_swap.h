@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:22:11 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/30 19:03:24 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/10/30 19:31:53 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_values
 }					t_values;
 
 int					syntax_error(char *str);
-void				free_stuff(t_stack **a);
 int					check_duplicates(t_stack *a, int n);
 void				free_stack(t_stack **a);
 void				free_clean(t_stack **a, t_stack **b, t_values *idk);

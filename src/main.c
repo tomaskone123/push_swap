@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:21:40 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/10/25 11:13:07 by tomas            ###   ########.fr       */
+/*   Updated: 2024/10/30 19:29:41 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 // 	}
 // }
 
+static void	idk_init(t_values *idk, char *argv[])
+{
+		idk->splitnosplit = true;
+		idk->argv = ft_split(argv[1], ' ');
+}
+
 static void	help_function(t_stack **a, t_stack **b)
 {
 	if (stack_len(*a) == 2)
@@ -31,6 +37,14 @@ static void	help_function(t_stack **a, t_stack **b)
 		sort_stack(a, b);
 }
 
+static t_values	*calloc_this_shit(t_values *idk)
+{
+	idk = ft_calloc(1, sizeof(t_values));
+	if (idk == NULL)
+		exit(EXIT_FAILURE);
+	return (idk);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack		*a;
@@ -39,15 +53,13 @@ int	main(int argc, char *argv[])
 
 	a = NULL;
 	b = NULL;
-	idk = ft_calloc(1, sizeof(t_values));
+	idk = NULL;
+	idk = calloc_this_shit(idk);
 	idk->splitnosplit = false;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		free_clean(&a, &b, idk);
 	else if (argc == 2)
-	{
-		idk->splitnosplit = true;
-		idk->argv = ft_split(argv[1], ' ');
-	}
+		idk_init(idk, argv);
 	else
 		idk->argv = argv + 1;
 	if (!ft_stack_init(&a, idk->argv))

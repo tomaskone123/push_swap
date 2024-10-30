@@ -61,3 +61,35 @@ fclean: clean
 
 re: fclean all
 	+@echo "$(RED)Cleaned all and rebuilt $(NAME) and $(LIB_DIR)$(END_COLOR)"
+
+################################################################################
+## TESTS
+
+test2:		$(NAME)
+	+$(eval ARG = $(shell shuf -i 0-5000 -n 2 | awk '{print $$1 - 1000}'))
+	+./push_swap $(ARG) | ./checker_linux $(ARG)
+	+@echo -n "$(GREEN)^ checker output\n$(END_COLOR)"
+	+@echo -n "$(YELLOW)Instructions: $(END_COLOR)"
+	+@./push_swap $(ARG) | wc -l
+
+test3:		$(NAME)
+	+$(eval ARG = $(shell shuf -i 0-5000 -n 3 | awk '{print $$1 - 1000}'))
+	+./push_swap $(ARG) | ./checker_linux $(ARG)
+	+@echo -n "$(GREEN)^ checker output\n$(END_COLOR)"
+	+@echo -n "$(YELLOW)Instructions: $(END_COLOR)"
+	+@./push_swap $(ARG) | wc -l
+
+test100:		$(NAME)
+	+$(eval ARG = $(shell shuf -i 0-5000 -n 100 | awk '{print $$1 - 1000}'))
+	+./push_swap $(ARG) | ./checker_linux $(ARG)
+	+@echo -n "$(GREEN)^ checker output\n$(END_COLOR)"
+	+@echo -n "$(YELLOW)Instructions: $(END_COLOR)"
+	+@./push_swap $(ARG) | wc -l
+
+
+test500:		$(NAME)
+	+$(eval ARG = $(shell shuf -i 0-5000 -n 500 | awk '{print $$1 - 1000}'))
+	+./push_swap $(ARG) | ./checker_linux $(ARG)
+	+@echo -n "$(GREEN)^ checker output\n$(END_COLOR)"
+	+@echo -n "$(YELLOW)Instructions: $(END_COLOR)"
+	+@./push_swap $(ARG) | wc -l
